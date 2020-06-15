@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MediatR.Behaviors.Authorization</AssemblyName>
+    <Authors>Austin Davies</Authors>
+    <Description>A simple request authorization package that allows you to build and run request specific authorization requirements before your request handler is called.</Description>
+    <PackageTags>MediatR, Authorization</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Product>MediatR.Behaviors.Authorization</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageId>MediatR.Behaviors.Authorization</PackageId>
+    <RepositoryUrl>https://github.com/AustinDavies/MediatR.Behaviors.Authorization</RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <PackageProjectUrl>https://github.com/AustinDavies/MediatR.Behaviors.Authorization</PackageProjectUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

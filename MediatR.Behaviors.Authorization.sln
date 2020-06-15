@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Behaviors.Authorization", "MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj", "{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E971D1B-18B3-4DB2-99F6-0556750653E7}
+	EndGlobalSection
+EndGlobal
