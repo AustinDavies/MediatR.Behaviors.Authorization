@@ -7,10 +7,10 @@ namespace MediatR.Behaviors.Authorization.DependencyInjection
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddMediatorAuthorization(this IServiceCollection services, Assembly assembly, ServiceLifetime lifetime = ServiceLifetime.Scoped)
+        public static IServiceCollection AddMediatorAuthorization(this IServiceCollection services, Assembly assembly, ServiceLifetime authorizerLifetime = ServiceLifetime.Scoped)
         {
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestAuthorizationBehavior<,>));
-            services.AddAuthorizersFromAssembly(assembly, lifetime);
+            services.AddAuthorizersFromAssembly(assembly, authorizerLifetime);
 
             return services;
         }
