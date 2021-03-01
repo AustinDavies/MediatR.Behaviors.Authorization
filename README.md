@@ -48,8 +48,8 @@ public class Startup
 	//...
 	public void ConfigureServices(IServiceCollection services)
 	{
-		// Add the transient pipeline behavior
-		services.AddMediatorAuthorization();
+		// Adds the transient pipeline behavior and additionally registers all `IAuthorizationHandlers` for a given assembly
+		services.AddMediatorAuthorization(Assembly.GetExecutingAssembly());
 		// Register all `IAuthorizer` implementations for a given assembly
 		services.AddAuthorizersFromAssembly(Assembly.GetExecutingAssembly())
 
