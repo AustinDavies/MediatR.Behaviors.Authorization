@@ -15,10 +15,15 @@ namespace MediatR.Behaviors.Authorization.Extensions.DependencyInjection
                 ServiceLifetime lifetime = ServiceLifetime.Scoped)
         {
             var authorizerType = typeof(IAuthorizer<>);
-            assembly.GetTypesAssignableTo(authorizerType).ForEach((type) =>
+            GetTypesAssignableTo(assembly, authorizerType).ForEach((type) =>
             {
                 foreach (var implementedInterface in type.ImplementedInterfaces)
                 {
+                    if (!implementedInterface.IsGenericType)
+                        continue;
+                    if (implementedInterface.GetGenericTypeDefinition() != authorizerType)
+                        continue;
+
                     switch (lifetime)
                     {
                         case ServiceLifetime.Scoped:
@@ -35,7 +40,7 @@ namespace MediatR.Behaviors.Authorization.Extensions.DependencyInjection
             });
         }
 
-        public static List<TypeInfo> GetTypesAssignableTo(this Assembly assembly, Type compareType)
+        private static List<TypeInfo> GetTypesAssignableTo(Assembly assembly, Type compareType)
         {
             var typeInfoList = assembly.DefinedTypes.Where(x => x.IsClass
                                 && !x.IsAbstract

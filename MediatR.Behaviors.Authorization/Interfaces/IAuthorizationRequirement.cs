@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace MediatR.Behaviors.Authorization
+﻿namespace MediatR.Behaviors.Authorization
 {
-    public interface IAuthorizationRequirement : IRequest<AuthorizationResult>
-    {
+    public interface IAuthorizationRequirement
+    {  
     }
 }

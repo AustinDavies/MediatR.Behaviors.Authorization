@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace MediatR.Behaviors.Authorization
 {
-    public interface IAuthorizationHandler<TRequest> : IRequestHandler<TRequest, AuthorizationResult>
-        where TRequest : IRequest<AuthorizationResult>
+    public interface IAuthorizationHandler<TRequirement>
+        where TRequirement : IAuthorizationRequirement
     {
-
+        Task<AuthorizationResult> Handle(TRequirement requirement, CancellationToken cancellationToken = default);
     }
 }
