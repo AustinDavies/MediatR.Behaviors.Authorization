@@ -20,15 +20,15 @@ namespace MediatR.Behaviors.Authorization.Extensions.DependencyInjection
         {
             var authHandlerOpenType = typeof(IAuthorizationHandler<>);
             GetTypesAssignableTo(assembly, authHandlerOpenType)
-                .ForEach((concreation) => {
-                    foreach(var implementedInterface in concreation.ImplementedInterfaces)
+                .ForEach((concretion) => {
+                    foreach(var implementedInterface in concretion.ImplementedInterfaces)
                     {
                         if (!implementedInterface.IsGenericType)
                             continue;
                         if (implementedInterface.GetGenericTypeDefinition() != authHandlerOpenType)
                             continue;
 
-                        services.AddTransient(implementedInterface, concreation);
+                        services.AddTransient(implementedInterface, concretion);
                     }
                 });
 
