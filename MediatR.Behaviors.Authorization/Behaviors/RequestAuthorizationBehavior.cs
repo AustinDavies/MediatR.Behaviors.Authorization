@@ -33,6 +33,9 @@ namespace MediatR.Behaviors.Authorization
 
             foreach (var authorizer in _authorizers)
             {
+                if (!(authorizer.Requirements is null) && authorizer.Requirements.Any())
+                    authorizer.ClearRequirements();
+
                 authorizer.BuildPolicy(request);
                 foreach (var requirement in authorizer.Requirements)
                     requirements.Add(requirement);
