@@ -15,6 +15,8 @@ namespace MediatR.Behaviors.Authorization
             _requirements.Add(requirement);
         }
 
+        public virtual void ClearRequirements() => _requirements.Clear();
+
         public abstract void BuildPolicy(TRequest request);
     }
 }
