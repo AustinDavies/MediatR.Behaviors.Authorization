@@ -24,18 +24,9 @@ namespace MediatR.Behaviors.Authorization.Extensions.DependencyInjection
                     if (implementedInterface.GetGenericTypeDefinition() != authorizerType)
                         continue;
 
-                    switch (lifetime)
-                    {
-                        case ServiceLifetime.Scoped:
-                            services.AddScoped(implementedInterface, type);
-                            break;
-                        case ServiceLifetime.Singleton:
-                            services.AddSingleton(implementedInterface, type);
-                            break;
-                        case ServiceLifetime.Transient:
-                            services.AddTransient(implementedInterface, type);
-                            break;
-                    }
+                    var serviceType = implementedInterface.ContainsGenericParameters ? authorizerType : implementedInterface;
+
+                    services.Add(new ServiceDescriptor(serviceType, type, lifetime));
                 }
             });
         }
