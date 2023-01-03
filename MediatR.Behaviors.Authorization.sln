@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Behaviors.Authorization", "MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj", "{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{A6DBAF6A-78EE-4293-81A3-0E4E4A6E70C9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalAuthorizerExample", "examples\GlobalAuthorizerExample\GlobalAuthorizerExample.csproj", "{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{25FBE350-C0D1-4DB3-902D-5AB609D31404}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Behaviors.Authorization", "src\MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj", "{590D67CD-AF45-434A-BEAD-99EF52B97513}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +17,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5996EE1-0BCD-45E3-BF3E-B0FD8C35B11C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590D67CD-AF45-434A-BEAD-99EF52B97513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590D67CD-AF45-434A-BEAD-99EF52B97513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590D67CD-AF45-434A-BEAD-99EF52B97513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590D67CD-AF45-434A-BEAD-99EF52B97513}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5} = {A6DBAF6A-78EE-4293-81A3-0E4E4A6E70C9}
+		{590D67CD-AF45-434A-BEAD-99EF52B97513} = {25FBE350-C0D1-4DB3-902D-5AB609D31404}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E971D1B-18B3-4DB2-99F6-0556750653E7}

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj" />
+    <ProjectReference Include="..\..\src\MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj" />
   </ItemGroup>
 
 </Project>
