@@ -21,7 +21,7 @@ namespace GlobalAuthorizerExample
             IServiceCollection services = new ServiceCollection();
 
             services.AddScoped<ICurrentUserService>(provider => _exampleCurrentUserService);
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
             services.AddMediatorAuthorization(Assembly.GetExecutingAssembly());
             services.AddAuthorizersFromAssembly(Assembly.GetExecutingAssembly());
