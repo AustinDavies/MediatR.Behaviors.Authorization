@@ -11,7 +11,6 @@ using System.Reflection;
 namespace MediatR.Behaviors.Authorization
 {
     public class RequestAuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
     {
 
         private readonly IEnumerable<IAuthorizer<TRequest>> _authorizers;
