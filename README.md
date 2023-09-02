@@ -155,6 +155,43 @@ public class GetCourseVideoDetailAuthorizer : AbstractRequestAuthorizer<GetCours
 ```
 The usage of `AbstractRequestAuthorizer<TRequest>` will usually be preferable; this abstract class does a couple things for us. It takes care of initializing and adding new requirements to the `Requirements` property through the `UseRequirement(IAuthorizationRequirement)`, finally, it still forces the class extending it to implement the `IAuthorizer.BuildPolicy()` method which is very important for passing the needed arguments to the authorization requirement that handles the authorization logic.
 
+## Overriding the Default Unauthorized Behavior
+
+When a requirement is not met (i.e., IsAuthorized is false), the default behavior is to throw an `UnauthorizedException`. You can change this by creating a class which implements the `Invoke` method of the `IUnauthorizedResultHandler` interface:
+
+```c#
+public class ExampleUnauthorizedResultHandler : IUnauthorizedResultHandler
+    {
+        public Task<TResponse> Invoke<TResponse>(AuthorizationResult result)
+        {
+            return Task.FromResult(default(TResponse));
+        }
+    }
+```
+
+Once you have created your custom `IUnauthorizedResultHandler`, you will need to configure the options during IoC setup:
+
+```c#
+using MediatR.Behaviors.Authorization.Extensions.DependencyInjection;
+
+public class Startup
+{
+	//...
+	public void ConfigureServices(IServiceCollection services)
+	{
+		// Use the options overload method to configure your custom `IUnauthorizedResultHandler`
+		services.AddMediatorAuthorization(Assembly.GetExecutingAssembly(), 
+            cfg => cfg.UseUnauthorizedResultHandlerStrategy(new ExampleUnauthorizedResultHandler));
+	}
+}
+```
+
+The `ExampleUnauthorizedResultHandler` is a very basic example. Some reasons why you may want to override the default unauthorized behavior can include (but not limited to):
+* Throwing a different exception type
+* Attaching additional behavior such as raising an event.
+* If you are using a discriminated union library (e.g., OneOf, FluentResults, ErrorOr) in conjuction with your MediatR requests.
+
+
 For any requests, bug or comments, please [open an issue][issues] or [submit a
 pull request][pulls].
 
