@@ -1,5 +1,4 @@
-﻿using MediatR.Behaviors.Authorization.Exceptions;
-using MediatR.Behaviors.Authorization.Interfaces;
+﻿using MediatR.Behaviors.Authorization.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System;
 using System.Reflection;
+using MediatR.Behaviors.Authorization.Configuration;
 
 namespace MediatR.Behaviors.Authorization
 {
@@ -14,15 +14,19 @@ namespace MediatR.Behaviors.Authorization
     {
 
         private readonly IEnumerable<IAuthorizer<TRequest>> _authorizers;
+        private readonly AuthorizationPipelineHandlerOptions _options;
 
         private static readonly ConcurrentDictionary<Type, Type> _requirementHandlers = new ConcurrentDictionary<Type, Type>();
         private static readonly ConcurrentDictionary<Type, MethodInfo> _handlerMethodInfo = new ConcurrentDictionary<Type, MethodInfo>();
 
         private IServiceProvider _serviceProvider;
 
-        public RequestAuthorizationBehavior(IEnumerable<IAuthorizer<TRequest>> authorizers, IServiceProvider serviceProvider)
+        public RequestAuthorizationBehavior(
+            IEnumerable<IAuthorizer<TRequest>> authorizers, 
+            AuthorizationPipelineHandlerOptions options, IServiceProvider serviceProvider)
         {
             _authorizers = authorizers;
+            _options = options;
             _serviceProvider = serviceProvider;
         }
 
@@ -44,8 +48,8 @@ namespace MediatR.Behaviors.Authorization
             {
                 var result = await ExecuteAuthorizationHandler(requirement, cancellationToken);
 
-                if (!result.IsAuthorized)
-                    throw new UnauthorizedException(result.FailureMessage);
+                if(!result.IsAuthorized)
+                    return await _options.OnUnauthorized.Invoke<TResponse>(result);
             }
 
             return await next();

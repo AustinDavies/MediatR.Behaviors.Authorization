@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR.Behaviors.Authorization.Configuration;
+using MediatR.Behaviors.Authorization.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,27 @@ namespace MediatR.Behaviors.Authorization.Extensions.DependencyInjection
     {
         public static IServiceCollection AddMediatorAuthorization(this IServiceCollection services, Assembly assembly)
         {
+            return AddMediatorAuthorization(services, assembly, new AuthorizationPipelineHandlerOptions());
+        }
+
+        public static IServiceCollection AddMediatorAuthorization(this IServiceCollection services, Assembly assembly, 
+            Action<AuthorizationPipelineHandlerOptions> configuration)
+        {
+            var options = new AuthorizationPipelineHandlerOptions();
+            configuration.Invoke(options);
+
+            return AddMediatorAuthorization(services, assembly, options);
+        }
+
+        private static IServiceCollection AddMediatorAuthorization(IServiceCollection services, Assembly assembly, AuthorizationPipelineHandlerOptions options)
+        {
+            if (options.OnUnauthorized is null)
+                throw new InvalidOperationException($"The property {nameof(AuthorizationPipelineHandlerOptions.OnUnauthorized)} " +
+                    $"was not assigned in {nameof(AuthorizationPipelineHandlerOptions)}. " +
+                    $"You must specify a {nameof(IUnauthorizedResultHandler)}.");
+
+            services.AddTransient(provider => options);
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestAuthorizationBehavior<,>));
             AddAuthorizationHandlers(services, assembly);
 
