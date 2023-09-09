@@ -8,8 +8,9 @@
             IsAuthorized = isAuthorized;
             FailureMessage = failureMessage;
         }
+
         public bool IsAuthorized { get; }
-        public string FailureMessage { get; set; }
+        public string FailureMessage { get; private set; }
 
         public static AuthorizationResult Fail()
         {
