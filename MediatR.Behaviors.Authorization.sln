@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{A6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalAuthorizerExample", "examples\GlobalAuthorizerExample\GlobalAuthorizerExample.csproj", "{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{16B34DC5-35AD-4E84-B71F-B92A0CC8E89F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Behaviors.Authorization.Tests", "tests\MediatR.Behaviors.Authorization.Tests\MediatR.Behaviors.Authorization.Tests.csproj", "{CF381709-22A3-4E34-9B9F-EB31A30C46C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +27,17 @@ Global
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF381709-22A3-4E34-9B9F-EB31A30C46C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF381709-22A3-4E34-9B9F-EB31A30C46C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF381709-22A3-4E34-9B9F-EB31A30C46C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF381709-22A3-4E34-9B9F-EB31A30C46C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DAFD8536-55AF-4640-BEFF-EDF932EB22A5} = {A6DBAF6A-78EE-4293-81A3-0E4E4A6E70C9}
+		{CF381709-22A3-4E34-9B9F-EB31A30C46C1} = {16B34DC5-35AD-4E84-B71F-B92A0CC8E89F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E971D1B-18B3-4DB2-99F6-0556750653E7}
