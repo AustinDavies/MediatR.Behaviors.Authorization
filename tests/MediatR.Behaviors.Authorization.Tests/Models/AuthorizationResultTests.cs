@@ -1,9 +1,8 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace MediatR.Behaviors.Authorization.Tests.Models
 {
-	public class AuthorizationResultTests
+    public class AuthorizationResultTests
 	{
 
         [Fact(DisplayName = "Should return FailureMessage null when call 'Succeed()'.")]

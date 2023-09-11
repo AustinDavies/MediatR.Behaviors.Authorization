@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Xunit;
+﻿using Xunit;
 
 namespace MediatR.Behaviors.Authorization.Tests.Models
 {

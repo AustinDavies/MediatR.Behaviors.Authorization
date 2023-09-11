@@ -18,17 +18,24 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="Exceptions\" />
     <None Remove="Behaviors\" />
+    <None Remove="Extensions\" />
+    <None Remove="Extensions\DependencyInjection\" />
+    <None Remove="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Extensions\DependencyInjection\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MediatR.Behaviors.Authorization\MediatR.Behaviors.Authorization.csproj" />
