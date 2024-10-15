@@ -14,9 +14,9 @@
     <RepositoryType></RepositoryType>
     <PackageProjectUrl>https://github.com/AustinDavies/MediatR.Behaviors.Authorization</PackageProjectUrl>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
-    <Version>12.1.1</Version>
-    <AssemblyVersion>12.1.1.0</AssemblyVersion>
-    <FileVersion>12.1.1.0</FileVersion>
+    <Version>12.2.0</Version>
+    <AssemblyVersion>12.2.0.0</AssemblyVersion>
+    <FileVersion>12.2.0.0</FileVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
   </ItemGroup>
 
